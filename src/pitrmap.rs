@@ -7,12 +7,41 @@ pub struct Vec3 {
 	pub z: f64
 }
 
+impl Vec3 {
+	pub fn zero() -> Self {
+		Vec3 {
+			x: 0.0,
+			y: 0.0,
+			z: 0.0
+		}
+	}
+
+	pub fn normal() -> Self {
+		Vec3 {
+			x: 1.0,
+			y: 1.0,
+			z: 1.0
+		}
+	}
+}
+
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Rotation {
 	pub x: f64,
 	pub y: f64,
 	pub z: f64,
 	pub w: f64
+}
+
+impl Rotation {
+	pub fn zero() -> Self {
+		Rotation {
+			x: 0.0,
+			y: 0.0,
+			z: 0.0,
+			w: 0.0
+		}
+	}
 }
 
 #[allow(non_snake_case)]
@@ -36,6 +65,20 @@ pub struct Prop {
 	pub Scale: Vec3,
 	pub Kinematic: bool,
 	pub Type: u8
+}
+
+impl Prop {
+	#[allow(non_snake_case)]
+	pub fn new(ObjectIdentifier: String) -> Self {
+		Prop {
+			ObjectIdentifier,
+			Position: Vec3::zero(),
+			Rotation: Rotation::zero(),
+			Scale: Vec3::normal(),
+			Kinematic: false,
+			Type: 0
+		}
+	}
 }
 
 #[allow(non_snake_case)]
