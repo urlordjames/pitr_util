@@ -8,7 +8,7 @@ fn main() {
 			let mut explosive = Prop::new(String::from("ultrakill.explosive-barrel"));
 
 			explosive.Position.x = x as f64;
-			explosive.Position.y = 100f64;
+			explosive.Position.y = 30f64;
 			explosive.Position.z = 400f64 + z as f64;
 			explosive.Kinematic = true;
 
