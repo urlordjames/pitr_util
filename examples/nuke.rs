@@ -1,4 +1,4 @@
-use pitr_util::pitrmap::{PitrMap, Prop};
+use pitr_util::{PitrMap, Prop};
 
 fn main() {
 	let mut map = PitrMap::new();

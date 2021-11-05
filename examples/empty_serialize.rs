@@ -1,4 +1,4 @@
-use pitr_util::pitrmap::PitrMap;
+use pitr_util::PitrMap;
 
 fn main() {
 	let map = PitrMap::new();

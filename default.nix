@@ -5,5 +5,5 @@ in pkgs.rustPlatform.buildRustPackage rec {
 
 	src = ./.;
 
-	cargoSha256 = "19asss043sb4in27z49x444d4i9p2xalkvg1b6kjh7956n504inm";
+	cargoSha256 = "18hp0ad4h1r99pxr3k8n2bh6mfmyvp1zgqq2g8jjxj0q6agi5isj";
 }
