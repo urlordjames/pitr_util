@@ -8,19 +8,19 @@ fn main() {
 	let stepsize: f64 = 0.5;
 	let mut map = PitrMap::new();
 
-	let mut x = 0f64;
-	while x < 50.0 {
+	let mut x = -25f64;
+	while x < 25.0 {
 		x += stepsize;
 
-		let mut z = 400f64;
-		while z < 450.0 {
+		let mut z = -25f64;
+		while z < 25.0 {
 			z += stepsize;
 
 			let mut point = Block::new(String::from("ultrakill.brush-metal"));
 
 			point.Position.x = x;
 			point.Position.y = graph(x, z);
-			point.Position.z = z;
+			point.Position.z = z + 400.0;
 			point.BlockSize = Vec3::from(stepsize);
 
 			map.Blocks.push(point);
