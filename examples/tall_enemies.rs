@@ -4,7 +4,7 @@ fn main() {
 	let args: Vec<String> = std::env::args().collect();
 	let filename = args.get(1).expect("specify a file argument");
 
-	let mut map = PitrMap::from_file(filename).expect("no such file").expect("invalid map file");
+	let mut map = PitrMap::from_file(filename).expect("a valid file needs to be present");
 
 	for enemy in map.Enemies.iter_mut() {
 		enemy.Scale.y += 1f64;

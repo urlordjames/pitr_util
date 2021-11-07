@@ -1,5 +1,8 @@
 use serde::{Serialize, Deserialize};
 
+mod errors;
+use errors::{FromStringError, FromFileError};
+
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Vec3 {
 	pub x: f64,
@@ -143,16 +146,40 @@ impl PitrMap {
 		}
 	}
 
-	pub fn from_string(string: &str) -> Result<Self, serde_json::Error> {
-		serde_json::from_str(string)
+	pub fn from_string(string: &str) -> Result<Self, FromStringError> {
+		let map: Result<Self, serde_json::Error> = serde_json::from_str(string);
+
+		match map {
+			Ok(parsed_map) => {
+				if parsed_map.SaveVersion != 1 {
+					return Err(FromStringError::UnsupportedSaveVersion(parsed_map.SaveVersion));
+				}
+
+				if parsed_map.GameVersion != "3.0" {
+					return Err(FromStringError::UnsupportedGameVersion(parsed_map.GameVersion));
+				}
+
+				Ok(parsed_map)
+			},
+			Err(error) => {
+				Err(FromStringError::ParseError(error))
+			}
+		}
 	}
 
-	pub fn from_file(file_name: &str) -> Option<Result<Self, serde_json::Error>> {
+	pub fn from_file(file_name: &str) -> Result<Self, FromFileError> {
 		let file_contents = std::fs::read_to_string(file_name);
 
 		match file_contents {
-			Ok(file_contents) => Some(Self::from_string(file_contents.as_str())),
-			Err(_) => None
+			Ok(file_contents) => {
+				let map = Self::from_string(file_contents.as_str());
+
+				match map {
+					Ok(parsed_map) => Ok(parsed_map),
+					Err(kind) => Err(FromFileError::FromStringError(kind))
+				}
+			},
+			Err(kind) => Err(FromFileError::FileError(kind))
 		}
 	}
 
