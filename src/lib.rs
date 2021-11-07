@@ -20,6 +20,18 @@ impl Vec3 {
 	}
 }
 
+impl std::ops::Add for Vec3 {
+	type Output = Self;
+
+	fn add(self, other: Self) -> Self {
+		Vec3 {
+			x: self.x + other.x,
+			y: self.y + other.y,
+			z: self.z + other.z
+		}
+	}
+}
+
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Rotation {
 	pub x: f64,
