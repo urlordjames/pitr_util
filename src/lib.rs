@@ -11,14 +11,6 @@ pub struct Vec3 {
 }
 
 impl Vec3 {
-	pub fn zero() -> Self {
-		Vec3 {
-			x: 0.0,
-			y: 0.0,
-			z: 0.0
-		}
-	}
-
 	pub fn from(n: f64) -> Self {
 		Vec3 {
 			x: n,
@@ -65,9 +57,9 @@ impl Block {
 	pub fn new(ObjectIdentifier: String) -> Self {
 		Block {
 			ObjectIdentifier,
-			Position: Vec3::zero(),
+			Position: Vec3::from(0.0),
 			Rotation: Rotation::zero(),
-			Scale: Vec3::zero(),
+			Scale: Vec3::from(0.0),
 			Kinematic: true,
 			BlockSize: Vec3::from(1.0),
 			BlockType: 0
@@ -91,7 +83,7 @@ impl Prop {
 	pub fn new(ObjectIdentifier: String) -> Self {
 		Prop {
 			ObjectIdentifier,
-			Position: Vec3::zero(),
+			Position: Vec3::from(0.0),
 			Rotation: Rotation::zero(),
 			Scale: Vec3::from(1.0),
 			Kinematic: false,
@@ -114,7 +106,7 @@ impl Enemy {
 	pub fn new(ObjectIdentifier: String) -> Self {
 		Enemy {
 			ObjectIdentifier,
-			Position: Vec3::zero(),
+			Position: Vec3::from(0.0),
 			Rotation: Rotation::zero(),
 			Scale: Vec3::from(1.0)
 		}
