@@ -9,7 +9,7 @@ fn main() {
 		y: -10.0,
 		z: 370.0
 	};
-	block.BlockSize = Vec3::normal();
+	block.BlockSize = Vec3::from(1.0);
 	map.Blocks.push(block);
 
 	let serialized_map = map.to_string().unwrap();

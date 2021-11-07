@@ -16,11 +16,11 @@ impl Vec3 {
 		}
 	}
 
-	pub fn normal() -> Self {
+	pub fn from(n: f64) -> Self {
 		Vec3 {
-			x: 1.0,
-			y: 1.0,
-			z: 1.0
+			x: n,
+			y: n,
+			z: n
 		}
 	}
 }
@@ -66,7 +66,7 @@ impl Block {
 			Rotation: Rotation::zero(),
 			Scale: Vec3::zero(),
 			Kinematic: true,
-			BlockSize: Vec3::normal(),
+			BlockSize: Vec3::from(1.0),
 			BlockType: 0
 		}
 	}
@@ -90,7 +90,7 @@ impl Prop {
 			ObjectIdentifier,
 			Position: Vec3::zero(),
 			Rotation: Rotation::zero(),
-			Scale: Vec3::normal(),
+			Scale: Vec3::from(1.0),
 			Kinematic: false,
 			Type: 0
 		}
@@ -113,7 +113,7 @@ impl Enemy {
 			ObjectIdentifier,
 			Position: Vec3::zero(),
 			Rotation: Rotation::zero(),
-			Scale: Vec3::normal()
+			Scale: Vec3::from(1.0)
 		}
 	}
 }
