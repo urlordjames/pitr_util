@@ -20,7 +20,7 @@ impl Vec3 {
 	}
 }
 
-auto_ops::impl_op!(+ |a: Vec3, b: Vec3| -> Vec3 {
+auto_ops::impl_op_ex!(+ |a: &Vec3, b: &Vec3| -> Vec3 {
 	Vec3 {
 		x: a.x + b.x,
 		y: a.y + b.y,
@@ -28,7 +28,7 @@ auto_ops::impl_op!(+ |a: Vec3, b: Vec3| -> Vec3 {
 	}
 });
 
-auto_ops::impl_op!(- |a: Vec3, b: Vec3| -> Vec3 {
+auto_ops::impl_op_ex!(- |a: &Vec3, b: &Vec3| -> Vec3 {
 	Vec3 {
 		x: a.x - b.x,
 		y: a.y - b.y,
