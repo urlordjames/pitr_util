@@ -3,7 +3,7 @@ use serde::{Serialize, Deserialize};
 mod errors;
 use errors::{FromStringError, FromFileError};
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Vec3 {
 	pub x: f64,
 	pub y: f64,
@@ -36,7 +36,7 @@ auto_ops::impl_op_ex!(- |a: &Vec3, b: &Vec3| -> Vec3 {
 	}
 });
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Rotation {
 	pub x: f64,
 	pub y: f64,
