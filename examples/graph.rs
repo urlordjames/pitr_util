@@ -1,4 +1,5 @@
-use pitr_util::{PitrMap, Block};
+use pitr_util::pitrmap::PitrMap;
+use pitr_util::block::{Block, BlockType};
 use pitr_util::transform::Vec3;
 
 fn graph(x: f64, z: f64) -> f64 {
@@ -17,7 +18,7 @@ fn main() {
 		while z < 25.0 {
 			z += stepsize;
 
-			let mut point = Block::new(String::from("ultrakill.brush-metal"));
+			let mut point = Block::new(BlockType::Metal);
 
 			point.Position.x = x;
 			point.Position.y = graph(x, z);

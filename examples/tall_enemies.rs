@@ -1,4 +1,4 @@
-use pitr_util::PitrMap;
+use pitr_util::pitrmap::PitrMap;
 
 fn main() {
 	let args: Vec<String> = std::env::args().collect();

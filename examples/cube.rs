@@ -1,10 +1,11 @@
-use pitr_util::{PitrMap, Block};
+use pitr_util::pitrmap::PitrMap;
+use pitr_util::block::{Block, BlockType};
 use pitr_util::transform::Vec3;
 
 fn main() {
 	let mut map = PitrMap::new();
 
-	let mut block = Block::new(String::from("ultrakill.brush-metal"));
+	let mut block = Block::new(BlockType::Metal);
 	block.Position = Vec3 {
 		x: -60.0,
 		y: -10.0,
