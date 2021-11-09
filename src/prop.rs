@@ -15,8 +15,12 @@ pub enum PropType {
 	Maurice,
 	#[serde(rename="ultrakill.melon")]
 	Melon,
+	#[serde(rename="ultrakill.tree")]
+	Tree,
+	#[serde(rename="ultrakill.jump-pad")]
+	JumpPad,
 	#[serde(rename="ultrakill.grapple-point")]
-	GrapplePoint,
+	GrapplePoint
 }
 
 #[allow(non_snake_case)]
