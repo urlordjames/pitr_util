@@ -1,4 +1,5 @@
-use pitr_util::{PitrMap, Block, Vec3};
+use pitr_util::{PitrMap, Block};
+use pitr_util::transform::Vec3;
 
 fn graph(x: f64, z: f64) -> f64 {
 	x.sin() + z.cos()
