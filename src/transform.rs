@@ -33,6 +33,14 @@ auto_ops::impl_op_ex!(- |a: &Vec3, b: &Vec3| -> Vec3 {
 	}
 });
 
+auto_ops::impl_op_ex!(* |a: &Vec3, b: &Vec3| -> Vec3 {
+	Vec3 {
+		x: a.x * b.x,
+		y: a.y * b.y,
+		z: a.z * b.z
+	}
+});
+
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Rotation {
 	pub x: f64,

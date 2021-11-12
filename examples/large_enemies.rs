@@ -1,4 +1,5 @@
 use pitr_util::pitrmap::PitrMap;
+use pitr_util::transform::Vec3;
 
 fn main() {
 	let args: Vec<String> = std::env::args().collect();
@@ -7,9 +8,8 @@ fn main() {
 	let mut map = PitrMap::from_file(filename).expect("a valid file needs to be present");
 
 	for enemy in map.Enemies.iter_mut() {
-		enemy.Scale.y += 1f64;
+		enemy.Scale = &enemy.Scale * Vec3::from(1.2);
 	}
 
-	let reserialized_map = map.to_string().expect("cannot reserialize map");
-	println!("{}", reserialized_map);
+	println!("{}", map.to_string().unwrap());
 }
