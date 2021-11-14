@@ -3,7 +3,7 @@ use crate::transform::{Vec3, Rotation};
 
 #[derive(Serialize, Deserialize, Debug)]
 pub enum EnemyType {
-	#[serde(rename="ultrakill.filth")]
+	#[serde(rename="ultrakill.flith")]
 	Filth,
 	#[serde(rename="ultrakill.stray")]
 	Stray,
@@ -46,25 +46,34 @@ impl Enemy {
 	#[allow(non_snake_case)]
 	pub fn new(ObjectIdentifier: EnemyType) -> Self {
 		Enemy {
-			Scale: match &ObjectIdentifier {
-				EnemyType::Filth => Vec3::from(0.225),
-				EnemyType::Stray => Vec3::from(0.35),
-				EnemyType::Schism => Vec3::from(0.3),
-				EnemyType::Soldier => Vec3::from(2.5),
-				EnemyType::Stalker => Vec3::from(1.0),
-				EnemyType::Insurrectionist => Vec3::from(1.0),
-				EnemyType::Swordsmachine => Vec3::from(1.0),
-				EnemyType::Drone => Vec3::from(2.0),
-				EnemyType::Streetcleaner => Vec3::from(1.0),
-				EnemyType::Mindflayer => Vec3::from(1.0),
-				EnemyType::MaliciousFace => Vec3::from(1.0),
-				EnemyType::Cerberus => Vec3::from(4.0),
-				EnemyType::HideousMass => Vec3::from(1.0),
-				EnemyType::Virtue => Vec3::from(1.0)
-			},
+			Scale: Enemy::type_scale(&ObjectIdentifier),
 			ObjectIdentifier,
 			Position: Vec3::from(0.0),
 			Rotation: Rotation::zero(),
+		}
+	}
+
+	pub fn set_type(&mut self, enemy_type: EnemyType) {
+		self.Scale = Enemy::type_scale(&enemy_type);
+		self.ObjectIdentifier = enemy_type;
+	}
+
+	fn type_scale(enemy_type: &EnemyType) -> Vec3 {
+		match enemy_type {
+			EnemyType::Filth => Vec3::from(0.225),
+			EnemyType::Stray => Vec3::from(0.35),
+			EnemyType::Schism => Vec3::from(0.3),
+			EnemyType::Soldier => Vec3::from(2.5),
+			EnemyType::Stalker => Vec3::from(1.0),
+			EnemyType::Insurrectionist => Vec3::from(1.0),
+			EnemyType::Swordsmachine => Vec3::from(1.0),
+			EnemyType::Drone => Vec3::from(2.0),
+			EnemyType::Streetcleaner => Vec3::from(1.0),
+			EnemyType::Mindflayer => Vec3::from(1.0),
+			EnemyType::MaliciousFace => Vec3::from(1.0),
+			EnemyType::Cerberus => Vec3::from(4.0),
+			EnemyType::HideousMass => Vec3::from(1.0),
+			EnemyType::Virtue => Vec3::from(1.0)
 		}
 	}
 }
