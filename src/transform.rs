@@ -2,13 +2,13 @@ use serde::{Serialize, Deserialize};
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Vec3 {
-	pub x: f64,
-	pub y: f64,
-	pub z: f64
+	pub x: f32,
+	pub y: f32,
+	pub z: f32
 }
 
 impl Vec3 {
-	pub fn from(n: f64) -> Self {
+	pub fn from(n: f32) -> Self {
 		Vec3 {
 			x: n,
 			y: n,
@@ -43,10 +43,10 @@ auto_ops::impl_op_ex!(* |a: &Vec3, b: &Vec3| -> Vec3 {
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Rotation {
-	pub x: f64,
-	pub y: f64,
-	pub z: f64,
-	pub w: f64
+	pub x: f32,
+	pub y: f32,
+	pub z: f32,
+	pub w: f32
 }
 
 impl Rotation {

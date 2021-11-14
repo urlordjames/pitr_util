@@ -2,19 +2,19 @@ use pitr_util::pitrmap::PitrMap;
 use pitr_util::block::{Block, BlockType};
 use pitr_util::transform::Vec3;
 
-fn graph(x: f64, z: f64) -> f64 {
+fn graph(x: f32, z: f32) -> f32 {
 	x.sin() + z.cos()
 }
 
 fn main() {
-	let stepsize: f64 = 0.5;
+	let stepsize: f32 = 0.5;
 	let mut map = PitrMap::new();
 
-	let mut x = -25f64;
+	let mut x = -25.0;
 	while x < 25.0 {
 		x += stepsize;
 
-		let mut z = -25f64;
+		let mut z = -25.0;
 		while z < 25.0 {
 			z += stepsize;
 
