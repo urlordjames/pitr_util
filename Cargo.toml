@@ -1,6 +1,6 @@
 [package]
 name = "pitr_util"
-version = "1.0.0"
+version = "1.1.0"
 authors = ["urlordjames <32751441+urlordjames@users.noreply.github.com>"]
 license = "MIT"
 edition = "2018"
