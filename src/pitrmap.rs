@@ -66,6 +66,10 @@ impl PitrMap {
 		}
 	}
 
+	pub fn map_name(&self) -> &str {
+		&self.MapName
+	}
+
 	pub fn to_string(&self) -> Result<String, serde_json::Error> {
 		serde_json::to_string(self)
 	}
